@@ -72,7 +72,8 @@ connectors:
 
 # NOTE: Okta seems to require the "openid" scope.
 #       It does not work with [ "openid" "id_token" ] (okta complains custom scopes are not allowed)
-#       I'm not sure, Portier or Okta may be wrong here in what they expect/tolerate or maybe it's just the luck of OIDC.
+# NOTE: Make sure you enable the hybrid flow, with openid id_token in the your Dex client app in Okta Admin
+# TODO: I'm not sure, Portier or Okta may be wrong here in what they expect/tolerate or maybe it's just the luck of OIDC.
 - type: oidc
   id: okta
   name: Okta
