@@ -5,6 +5,7 @@
 This is a demo of:
  * [`dex`](https://github.com/dexidp/dex) as an identity broker
  * [`portier`](https://github.com/portier/portier-broker) as the identity provider
+ * [`okta`] as another identity provider
  * dex's [`example-app`](https://github.com/dexidp/dex/tree/master/cmd/example-app) as a relying party
 
 You can think of it like this:
