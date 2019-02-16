@@ -2,16 +2,20 @@
 
 ## overview
 
+context: https://github.com/dexidp/dex/pull/1256
+
 This is a demo of:
  * [`dex`](https://github.com/dexidp/dex) as an identity broker
  * [`portier`](https://github.com/portier/portier-broker) as the identity provider
- * [`okta`] as another identity provider
+ * `okta` as another identity provider
  * dex's [`example-app`](https://github.com/dexidp/dex/tree/master/cmd/example-app) as a relying party
 
 You can think of it like this:
- * example app is an app that needs to have users login, but can't do registration/login itself
- * Dex is a broker can acts like an IdP but is a front for other auth systems (oauth2/oidc/saml/etc)
- * Portier is an identity provider that verifies email ownership to determine/form identity
+ * `example app` is an app that needs to have users login, but can't do registration/login itself
+ * `dex` is a IdP that can broker (for/to/with?) other auth systems (oauth2/oidc/saml/etc)
+ * `dex` will allow users to login via:
+   * `okta` is another third party IdP
+   * `portier` is an identity provider that verifies email ownership to determine/form identity
 
 Search for "/home/cole" for places where paths will need to be updated:
  * portier's jwt signing key
