@@ -58,7 +58,7 @@ staticClients:
   name: 'Example App'
   secret: ZXhhbXBsZS1hcHAtc2VjcmV0
 
-# Portier requires [ "id_token" ] scope.
+# Portier seems to not care what scope you ask for? https://github.com/portier/portier-broker/issues/180
 connectors:
 - type: oidc
   id: oidc
@@ -67,13 +67,12 @@ connectors:
     issuer: http://127.0.0.1:3333
     clientID: http://127.0.0.1:5556
     redirectURI: http://127.0.0.1:5556/dex/callback
-    scopes: [ "id_token" ]
+    scopes: [ "openid" ]
     responseType: id_token
 
-# NOTE: Okta seems to require the "openid" scope.
-#       It does not work with [ "openid" "id_token" ] (okta complains custom scopes are not allowed)
+# NOTE: Okta seems to require the "openid" scope, but that doesn't get us a username or email.
+#       [ "openid", "email", "profile" ] seems to work with the implicit flow here
 # NOTE: Make sure you enable the hybrid flow, with openid id_token in the your Dex client app in Okta Admin
-# TODO: I'm not sure, Portier or Okta may be wrong here in what they expect/tolerate or maybe it's just the luck of OIDC.
 - type: oidc
   id: okta
   name: Okta
@@ -81,7 +80,7 @@ connectors:
     issuer: https://dev-444874.oktapreview.com
     clientID: 0oajetuj4l9I3fjZK0h7
     redirectURI: http://127.0.0.1:5556/dex/callback
-    scopes: [ "openid" ]
+    scopes: [ "openid", "email", "profile" ]
     responseType: id_token
 
 # Let dex keep a list of passwords which can be used to login to dex.
