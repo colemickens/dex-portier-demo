@@ -2,14 +2,12 @@
 
 ## overview
 
-note: some scripts have absolute paths you'll need to update in order to run
+here's a video of it in action: https://youtu.be/b8PKaBJH4dc
+[![Dex Portier Demo Video](http://img.youtube.com/vi/b8PKaBJH4dc/0.jpg)](http://www.youtube.com/watch?v=b8PKaBJH4 "Dex Portier Demo")
 
-## outcome
-
-## bonus
-
-If you're on NixOS or use Nix, you can use `shell.nix` and
-everything will just work ala-Docker, but better.
+Search for "/home/cole" for places where paths will need to be updated:
+ * portier's jwt signing key
+ * dex's sqlite3 database
 
 ## steps
 
@@ -41,3 +39,4 @@ go run ./cmd/dex/ serve ~/code/dex-portier-demo/dex.yaml
 cd ~/code/dex
 go run ./cmd/example-app/
 ```
+
